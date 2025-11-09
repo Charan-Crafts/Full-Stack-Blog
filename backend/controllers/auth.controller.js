@@ -146,7 +146,38 @@ const userLogin =async (req,res)=>{
         )
     }
 }
+
+const userLogout =async (req,res)=>{
+    
+    try {
+        const userId = req.user.userId;
+
+        const user = await userModel.findById(userId);
+
+        const options ={
+            httpOnly:true,
+            secure:true
+        }
+
+        res.clearCookie("accessToken",options)
+
+        res.clearCookie("refreshToken",options)
+
+        user.refreshToken =""
+
+        await user.save()
+
+        return res.status(201).json({
+            success:true,
+            message:"Logged out"
+        })
+    } catch (error) {
+        
+    }
+    
+}
 module.exports ={
     userRegistration,
-    userLogin
+    userLogin,
+    userLogout
 }
