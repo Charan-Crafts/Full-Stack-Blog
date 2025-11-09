@@ -2,7 +2,7 @@
 const blogModel = require("../models/blog.models")
 
 
-const cloudinary = require("../utils/cloudinary")
+const {uploadImageIntoCloudinary} = require("../utils/cloudinary")
 
 const addBlog = async (req, res) => {
 
@@ -29,7 +29,7 @@ const addBlog = async (req, res) => {
         }
         // try to create the request
 
-        const cloudinaryURL = await cloudinary.uploadImageIntoCloudinary(imageLocalPath)
+        const cloudinaryURL = await uploadImageIntoCloudinary(imageLocalPath)
 
         const newBlog = await blogModel.create({
             title,userId,imageUrl:cloudinaryURL,content,status:"POSTED"

@@ -5,9 +5,9 @@ const router = express.Router()
 
 const blogController = require("../controllers/blog.controller")
 
-const middleware = require("../middleware/auth.middleware")
+const middleware = require("../middlewares/auth.middleware")
 
-const multer = require("../middleware/multer.middleware")
+const multer = require("../middlewares/multer.middleware")
 
 router.post("/add",multer.single("image"),middleware.authMiddleware,blogController.addBlog)
 

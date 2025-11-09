@@ -4,7 +4,7 @@ const router = express.Router()
 
 const authControllers = require("../controllers/auth.controller")
 
-const middleware = require("../middleware/auth.middleware")
+const middleware = require("../middlewares/auth.middleware")
 
 router.post("/registration",authControllers.userRegistration)
 
