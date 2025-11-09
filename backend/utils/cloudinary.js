@@ -10,7 +10,7 @@ cloudinary.config({
 
 const uploadImageIntoCloudinary = async (localFilePath) => {
     try {
-        const response = await cloudinary.v2.uploader.upload(localFilePath);
+        const response = await cloudinary.uploader.upload(localFilePath);
 
         // Once the file is upload in the cloudinary remove the file from the local
 
@@ -23,4 +23,4 @@ const uploadImageIntoCloudinary = async (localFilePath) => {
     }
 }
 
-module.exports = uploadImageIntoCloudinary
+module.exports = {uploadImageIntoCloudinary}

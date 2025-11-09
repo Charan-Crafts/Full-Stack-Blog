@@ -11,7 +11,7 @@ const blogSchema = mongoose.Schema({
     },
     imageUrl:{
         type:String,   // Cloudinary URL
-        required:true
+        
     },
     content:{
         type:String,

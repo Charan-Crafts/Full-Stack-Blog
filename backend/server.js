@@ -30,7 +30,10 @@ app.use(cookieParser())
 
 const authRoutes = require("./routes/auth.routes")
 
-app.use("/api/v1",authRoutes)
+const blogRoutes = require("./routes/blog.routes")
+
+app.use("/api/v1/auth",authRoutes)
+app.use("/api/v1/blog",blogRoutes)
 
 app.get("/api/health",(req,res)=>{
     return res.status(200).json({message:"Working"})
